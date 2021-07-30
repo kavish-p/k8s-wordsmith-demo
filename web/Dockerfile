@@ -1,14 +1,7 @@
-# BUILD
-FROM golang:alpine as builder
+FROM scratch
 
-COPY dispatcher.go .
-RUN go build dispatcher.go
-
-# RUN
-FROM alpine
+COPY dispatcher /
+COPY static /static/
 
 EXPOSE 80
 CMD ["/dispatcher"]
-
-COPY --from=builder /go/dispatcher /
-COPY static /static/
