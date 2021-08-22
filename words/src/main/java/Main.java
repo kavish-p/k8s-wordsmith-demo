@@ -19,6 +19,10 @@ public class Main {
         server.createContext("/adjective", handler(() -> randomWord("adjectives")));
         server.start();
     }
+    
+    public String dummyFunction() {
+        return "I do nothing";
+    }
 
     private static String randomWord(String table) {
         try (Connection connection = DriverManager.getConnection("jdbc:postgresql://db:5432/postgres", "postgres", "")) {
